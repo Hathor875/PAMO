@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kalkulator BMI"
+            android:text="@string/kalkulator_bmi"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -22,14 +22,16 @@
             android:id="@+id/etWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Waga (kg)"
+            android:importantForAutofill="no"
+            android:hint="@string/waga_kg"
             android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/etHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Wzrost (cm)"
+            android:importantForAutofill="no"
+            android:hint="@string/wzrost_cm"
             android:inputType="numberDecimal" />
 
         <Button
@@ -37,14 +39,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Oblicz BMI" />
+            android:text="@string/oblicz_bmi" />
 
         <TextView
             android:id="@+id/tvBmiResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Wynik BMI: "
+            android:text="@string/wynik_bmi"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -58,7 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zapotrzebowanie Kaloryczne"
+            android:text="@string/zapotrzebowanie_kaloryczne"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -66,14 +68,15 @@
             android:id="@+id/etAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Wiek (lata)"
+            android:importantForAutofill="no"
+            android:hint="@string/wiek_lata"
             android:inputType="number" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Płeć:" />
+            android:text="@string/p_e" />
 
         <RadioGroup
             android:id="@+id/rgGender"
@@ -86,20 +89,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Mężczyzna" />
+                android:text="@string/m_czyzna" />
 
             <RadioButton
                 android:id="@+id/rbFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kobieta" />
+                android:text="@string/kobieta" />
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Aktywność fizyczna:" />
+            android:text="@string/aktywno_fizyczna" />
 
         <Spinner
             android:id="@+id/spinnerActivity"
@@ -112,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Oblicz Kalorie" />
+            android:text="@string/oblicz_kalorie" />
 
         <TextView
             android:id="@+id/tvBmrResult"
@@ -120,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="32dp"
-            android:text="Zapotrzebowanie: "
+            android:text="@string/zapotrzebowanie"
             android:textSize="18sp"
             android:textStyle="bold" />
 

@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">HealthCalculatorKotlin</string>
+    <string name="kalkulator_bmi">Kalkulator BMI</string>
+    <string name="waga_kg">Waga (kg)</string>
+    <string name="wzrost_cm">Wzrost (cm)</string>
+    <string name="oblicz_bmi">Oblicz BMI</string>
+    <string name="wynik_bmi">Wynik BMI:</string>
+    <string name="zapotrzebowanie_kaloryczne">Zapotrzebowanie Kaloryczne</string>
+    <string name="p_e">Płeć:</string>
+    <string name="wiek_lata">Wiek (lata)</string>
+    <string name="m_czyzna">Mężczyzna</string>
+    <string name="kobieta">Kobieta</string>
+    <string name="aktywno_fizyczna">Aktywność fizyczna:</string>
+    <string name="oblicz_kalorie">Oblicz Kalorie</string>
+    <string name="zapotrzebowanie">Zapotrzebowanie:</string>
+    <string name="logo">logo</string>
     <string-array name="activity_levels">
         <item>Brak aktywności</item>
         <item>Lekka aktywność (1–3 treningi/tydz.)</item>
