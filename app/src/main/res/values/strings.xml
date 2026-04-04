@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HealthCalculatorKotlin</string>
+    <string-array name="activity_levels">
+        <item>Brak aktywności</item>
+        <item>Lekka aktywność (1–3 treningi/tydz.)</item>
+        <item>Umiarkowana (3–5 treningów/tydz.)</item>
+        <item>Wysoka (codzienne treningi)</item>
+        <item>Bardzo wysoka (praca fizyczna)</item>
+    </string-array>
+</resources>
