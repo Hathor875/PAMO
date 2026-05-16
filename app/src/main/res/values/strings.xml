@@ -22,4 +22,7 @@
         <item>Bardzo wysoka (praca fizyczna)</item>
     </string-array>
     <string name="historia_bmi">Historia BMI</string>
+    <string name="lista_zakupow">Lista zakupów</string>
+    <string name="nav_kalkulator">Kalkulator</string>
+    <string name="nav_zakupy">Zakupy</string>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_calculator"
+        android:icon="@drawable/ic_calculator"
+        android:title="@string/nav_kalkulator" />
+    <item
+        android:id="@+id/navigation_shopping"
+        android:icon="@drawable/ic_shopping"
+        android:title="@string/nav_zakupy" />
+</menu>
