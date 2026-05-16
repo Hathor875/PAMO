@@ -7,6 +7,13 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * RecyclerView adapter for the shopping list.
+ * Persists checked state to [SharedPreferences] on every change.
+ *
+ * @param items list of shopping items to display
+ * @param prefs SharedPreferences instance used to persist checked state
+ */
 class ShoppingAdapter(
     private val items: List<ShoppingItem>,
     private val prefs: SharedPreferences
@@ -19,6 +26,7 @@ class ShoppingAdapter(
         items.forEach { it.isChecked = checked.contains(it.name) }
     }
 
+    /** Holds a reference to the checkbox view for a single list row. */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val checkBox: CheckBox = view.findViewById(R.id.cbItem)
     }

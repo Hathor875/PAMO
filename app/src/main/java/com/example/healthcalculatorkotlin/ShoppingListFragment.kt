@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Fragment displaying a shopping list with checkable items.
+ * Checked state is persisted via SharedPreferences across sessions.
+ */
 class ShoppingListFragment : Fragment() {
 
     private val shoppingItems = listOf(
