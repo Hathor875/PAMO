@@ -1,5 +1,6 @@
 package com.example.healthcalculatorkotlin
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,8 @@ class ShoppingListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvShoppingList)
+        val prefs = requireContext().getSharedPreferences("shopping_list", Context.MODE_PRIVATE)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = ShoppingAdapter(shoppingItems)
+        recyclerView.adapter = ShoppingAdapter(shoppingItems, prefs)
     }
 }
