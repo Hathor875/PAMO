@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.dokka)
 }
 
 android {
@@ -32,6 +33,14 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+tasks.named("dokkaHtml") {
+    (this as org.jetbrains.dokka.gradle.DokkaTask).dokkaSourceSets {
+        create("main") {
+            sourceRoots.from(file("src/main/java"))
+        }
     }
 }
 

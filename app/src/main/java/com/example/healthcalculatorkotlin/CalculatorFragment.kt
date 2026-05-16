@@ -19,6 +19,9 @@ import com.github.mikephil.charting.data.LineDataSet
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
+/**
+ * Fragment containing the BMI and BMR calculators and the BMI history chart.
+ */
 class CalculatorFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -93,6 +96,11 @@ class CalculatorFragment : Fragment() {
         setupBmiChart(view)
     }
 
+    /**
+     * Initialises the BMI history line chart with mocked data for the last 6 months.
+     *
+     * @param view the fragment's root view containing the chart
+     */
     private fun setupBmiChart(view: View) {
         val chart = view.findViewById<LineChart>(R.id.bmiChart)
 

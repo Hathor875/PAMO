@@ -27,4 +27,5 @@ androidx-recyclerview = { group = "androidx.recyclerview", name ="recyclerview",
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
 
