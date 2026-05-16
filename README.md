@@ -2,6 +2,13 @@
 
 **Author:** Krzysztof Cieślik
 
+## Organizacja Repo
+Stan dla następnych zajęć jest scalony do main.  
+Stan z zajęć przetrzymywany jest na osobnych gałęziach dla wygodny wg numeracji:  
+- Zajęcia 1 - PAMO01
+- Zajęcia 2 - PAMO02
+- itd...
+
 ## Funkcjonalności
 
 ### Kalkulator BMI
