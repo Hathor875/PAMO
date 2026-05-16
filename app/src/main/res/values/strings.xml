@@ -21,4 +21,5 @@
         <item>Wysoka (codzienne treningi)</item>
         <item>Bardzo wysoka (praca fizyczna)</item>
     </string-array>
+    <string name="historia_bmi">Historia BMI</string>
 </resources>

@@ -10,6 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.pow
 import kotlin.math.roundToInt
+import android.graphics.Color
+import android.view.View
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+
 
 class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +59,7 @@ class CalculatorActivity : AppCompatActivity() {
                 Toast.makeText(this, "Podaj wagę i wzrost!", Toast.LENGTH_SHORT).show()
             }
         }
-        btnBmr.setOnClickListener {
+        btnBmr.setOnClickListener { it: View? ->
             val weightStr = etWeight.text.toString()
             val heightStr = etHeight.text.toString()
             val ageStr = etAge.text.toString()
@@ -80,6 +87,33 @@ class CalculatorActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Podaj wagę, wzrost i wiek!", Toast.LENGTH_SHORT).show()
             }
+
         }
+        setupBmiChart()
+    }
+    private fun setupBmiChart() {
+        val chart = findViewById<LineChart>(R.id.bmiChart)
+
+        val entries = listOf(
+            Entry(1f, 28.4f),
+            Entry(2f, 26.5f),
+            Entry(3f, 27.9f),
+            Entry(4f, 27.1f),
+            Entry(5f, 25.8f),
+            Entry(6f, 24.9f),
+        )
+
+        val dataSet = LineDataSet(entries, "BMI").apply {
+            color = Color.BLUE
+            valueTextColor = Color.BLACK
+            lineWidth = 2f
+            circleRadius = 4f
+            setDrawFilled(true)
+        }
+
+        chart.data = LineData(dataSet)
+        chart.description.text = "Ostatnie 6 miesięcy"
+        chart.xAxis.granularity = 1f
+        chart.invalidate()
     }
 }
