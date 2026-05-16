@@ -1,85 +1,31 @@
 package com.example.healthcalculatorkotlin
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.Spinner
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlin.math.pow
-import kotlin.math.roundToInt
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
-        val etWeight = findViewById<EditText>(R.id.etWeight)
-        val etHeight = findViewById<EditText>(R.id.etHeight)
-        val etAge = findViewById<EditText>(R.id.etAge)
-
-        val btnBmi = findViewById<Button>(R.id.btnBmi)
-        val tvBmiResult = findViewById<TextView>(R.id.tvBmiResult)
-
-        val rbMale = findViewById<RadioButton>(R.id.rbMale)
-        val spinnerActivity = findViewById<Spinner>(R.id.spinnerActivity)
-        val btnBmr = findViewById<Button>(R.id.btnBmr)
-        val tvBmrResult = findViewById<TextView>(R.id.tvBmrResult)
-
-        btnBmi.setOnClickListener {
-            val weightStr = etWeight.text.toString()
-            val heightStr = etHeight.text.toString()
-
-            if (weightStr.isNotEmpty() && heightStr.isNotEmpty()) {
-                val weight = weightStr.toDouble()
-                val heightCm = heightStr.toDouble()
-                val heightM = heightCm / 100.0
-
-                val bmi = weight / heightM.pow(2)
-
-                val interpretation = when {
-                    bmi < 18.5 -> "Niedowaga"
-                    bmi < 25.0 -> "W normie"
-                    bmi < 30.0 -> "Nadwaga"
-                    else -> "Otyłość"
-                }
-
-                val formattedBmi = String.format("%.2f", bmi)
-                tvBmiResult.text = "Wynik BMI: $formattedBmi ($interpretation)"
-            } else {
-                Toast.makeText(this, "Podaj wagę i wzrost!", Toast.LENGTH_SHORT).show()
-            }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, CalculatorFragment())
+                .commit()
         }
-        btnBmr.setOnClickListener {
-            val weightStr = etWeight.text.toString()
-            val heightStr = etHeight.text.toString()
-            val ageStr = etAge.text.toString()
 
-            if (weightStr.isNotEmpty() && heightStr.isNotEmpty() && ageStr.isNotEmpty()) {
-                val weight = weightStr.toDouble()
-                val height = heightStr.toDouble()
-                val age = ageStr.toInt()
-                val bmr = if (rbMale.isChecked) {
-                    66.5 + (13.75 * weight) + (5.0 * height) - (6.75 * age)
-                } else {
-                    655.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age)
-                }
-                val activityMultiplier = when (spinnerActivity.selectedItemPosition) {
-                    0 -> 1.2
-                    1 -> 1.375
-                    2 -> 1.55
-                    3 -> 1.725
-                    else -> 1.9
-                }
-
-                val totalCalories = (bmr * activityMultiplier).roundToInt()
-                tvBmrResult.text = "Zapotrzebowanie: $totalCalories kcal/dzień"
-
-            } else {
-                Toast.makeText(this, "Podaj wagę, wzrost i wiek!", Toast.LENGTH_SHORT).show()
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNavigation.setOnItemSelectedListener { item ->
+            val fragment = when (item.itemId) {
+                R.id.navigation_calculator -> CalculatorFragment()
+                R.id.navigation_shopping -> ShoppingListFragment()
+                else -> return@setOnItemSelectedListener false
             }
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commit()
+            true
         }
     }
 }
