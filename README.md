@@ -2,12 +2,53 @@
 
 **Author:** Krzysztof Cieślik
 
-## Wygląd aplikacji
-Poniżej znajduje się zrzut ekranu działającej aplikacji:
+## Funkcjonalności
 
-![Zrzut ekranu aplikacji](app/HealtHCalculatorScreenshot.avif)
+### Kalkulator BMI
+- Obliczanie BMI na podstawie wagi i wzrostu
+- Interpretacja wyniku: Niedowaga / W normie / Nadwaga / Otyłość
 
----
+### Kalkulator Zapotrzebowania Kalorycznego (BMR)
+- Obliczanie dziennego zapotrzebowania kalorycznego metodą Harrisa-Benedicta
+- Uwzględnia płeć, wiek i poziom aktywności fizycznej (5 poziomów)
+
+### Historia BMI
+- Wykres liniowy zmian BMI w czasie (dane mockowane)
+- Zrealizowany przy użyciu biblioteki MPAndroidChart
+
+### Lista zakupów
+- Lista produktów zdrowej diety z możliwością odznaczania zakupionych pozycji
+- Stan checkboxów zapisywany trwale przy użyciu SharedPreferences
+
+## Zrzuty ekranu
+
+| Kalkulator | Lista zakupów (Monkey)|
+|---|---|
+| ![Kalkulator](app/HealtHCalculatorScreenshot.avif) | ![Lista zakupów](monkey_result.avif) |
+
+## Testy
+
+### Testy jednostkowe (JUnit)
+Uruchomienie:
+```bash
+./gradlew test
+```
+- `BmiCalculatorTest` — testy obliczania BMI i interpretacji wyniku
+- `ShoppingItemTest` — testy modelu danych listy zakupów
+
+### Testy UI (Espresso)
+Wymagają podłączonego urządzenia lub emulatora:
+```bash
+./gradlew connectedAndroidTest
+```
+- `CalculatorUITest` — testy przepływu obliczania BMI i BMR
+
+### Testy stabilności (Monkey)
+Wymagają zainstalowanej aplikacji i narzędzia [just](https://github.com/casey/just):
+```bash
+just monkey              # 500 losowych zdarzeń
+just monkey-screenshot   # monkey + zrzut ekranu
+```
 
 ## Licencja (MIT License)
 
